@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply bg-white text-charcoal-900 antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-blue-800 text-white;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-charcoal-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-blue-800 rounded-full;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'DM Serif Display', Georgia, serif;
+  }
+
+  /* Noise texture overlay */
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* Grid pattern */
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Card hover lift */
+  .card-lift {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(11, 61, 143, 0.15);
+  }
+
+  /* Image placeholder gradient backgrounds */
+  .img-cold-1 {
+    background: linear-gradient(145deg, #0B3D8F 0%, #1557C0 50%, #3B7DE8 100%);
+  }
+  .img-cold-2 {
+    background: linear-gradient(145deg, #063080 0%, #0B3D8F 60%, #1557C0 100%);
+  }
+  .img-cold-3 {
+    background: linear-gradient(145deg, #0a2d6e 0%, #063080 50%, #0B3D8F 100%);
+  }
+  .img-path-1 {
+    background: linear-gradient(145deg, #111827 0%, #1e2d47 50%, #0B3D8F 100%);
+  }
+  .img-path-2 {
+    background: linear-gradient(145deg, #1f2937 0%, #111827 60%, #0f1f3d 100%);
+  }
+  .img-proj-1 {
+    background: linear-gradient(135deg, #0B3D8F, #1557C0, #3B7DE8);
+  }
+  .img-proj-2 {
+    background: linear-gradient(135deg, #111827, #374151, #4B5563);
+  }
+  .img-proj-3 {
+    background: linear-gradient(135deg, #0d4fad, #0B3D8F, #063080);
+  }
+
+  /* Eyebrow label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-blue-800 font-bold tracking-widest uppercase;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply w-5 h-px bg-blue-800 flex-shrink-0;
+  }
+
+  /* Section spacing */
+  .section-pad {
+    @apply py-24 lg:py-32;
+  }
+
+  /* Smooth underline link */
+  .underline-link {
+    @apply relative inline-flex items-center gap-2 font-semibold;
+  }
+  .underline-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-current;
+    transform: scaleX(0.3);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .underline-link:hover::after {
+    transform: scaleX(1);
+  }
+}
