@@ -148,7 +148,7 @@ export default function Hero() {
             variants={item}
             className="text-white/55 text-[1.05rem] leading-[1.85] mb-10 max-w-lg"
           >
-            Baylem delivers end-to-end medical & non-medical cold chain, pathology, and mortuary solutions across East Africa, backed by expert installations, preventive maintenance, repairs, service contracts, and dependable after-sales technical support.Our solutions are engineered to ensure reliability, compliance, precision and uninterrupted technical performance.
+            Baylem Ltd delivers end-to-end medical & non-medical cold chain, pathology, and mortuary solutions across East Africa, backed by expert installations, preventive maintenance, repairs, service contracts, and dependable after-sales technical support.Our solutions are engineered to ensure reliability, compliance, precision and uninterrupted technical performance.
           </motion.p>
 
           <motion.div variants={item} className="flex flex-wrap gap-4">
